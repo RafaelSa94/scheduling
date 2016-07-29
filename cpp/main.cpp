@@ -1,6 +1,7 @@
 #include "header/algorithm.hpp"
 
 int main(int argc, char const *argv[]) {
-  /* code */
+  // ColorNode a(3, Color::BLACK);
+
   return 0;
 }

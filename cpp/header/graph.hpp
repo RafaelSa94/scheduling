@@ -9,9 +9,12 @@ using namespace std;
 
 class ColorGraph {
 private:
-  map<ColorNode, vector<ColorNode>> g;
+  map<int, vector<int>> g;
+  map<int, ColorNode*> v;
 public:
-  ColorGraph (map<ColorNode, vector<ColorNode>> g) : g(g) {};
-  ostream &operator<<(ostream &os);
-  virtual ~ColorGraph ();
+  ColorGraph (map<int, ColorNode*> v, map<int, vector<int>> g) :
+    v(v), g(g) {};
+  vector<int> getAdj(int node);
+  void setVertColor(int node, Color c);
+  virtual ~ColorGraph () { };
 };

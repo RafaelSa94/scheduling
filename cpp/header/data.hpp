@@ -1,17 +1,23 @@
 #pragma once
 
+#include "../header/node.hpp"
 #include <iostream>
 #include <map>
+#include <vector>
+#include <fstream>
+
+
 
 using namespace std;
 class Data {
 private:
-  map<ColorNode, vector<ColorNode> g;
-  string file;
+  map<int, vector<int>> g;
+  map<int, ColorNode*> v;
   void load(string file);
 
 public:
   Data ();
-  map<ColorNode, vector<ColorNode> getMap();
+  map<int, int> getMap();
+  map<int, ColorNode*> getVector();
   virtual ~Data ();
 };

@@ -7,17 +7,17 @@
 using namespace std;
 class GraphAlgorithm {
 protected:
-  ColorGraph* g;
+  ColorGraph g;
 public:
-  GraphAlgorithm ();
-  virtual void run();
-  virtual ~GraphAlgorithm ();
+  GraphAlgorithm (ColorGraph g) : g(g) { };
+  virtual void run() = 0;
+  virtual ~GraphAlgorithm () {};
 };
 
 
 class ColoringAlgorithm : public GraphAlgorithm {
 public:
-  ColoringAlgorithm (map<ColorNode, vector<ColorNode>> g);
+  ColoringAlgorithm (ColorGraph g) : GraphAlgorithm(g) {};
   virtual void run();
-  virtual ~ColoringAlgorithm ();
+  virtual ~ColoringAlgorithm () {};
 };

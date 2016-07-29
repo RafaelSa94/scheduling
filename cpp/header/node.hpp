@@ -2,6 +2,8 @@
 
 #include "color.hpp"
 #include <iostream>
+#include <vector>
+
 
 using namespace std;
 class Node {
@@ -10,17 +12,18 @@ private:
 public:
   Node (int id) : id(id) {};
   int getId();
-  ostream &operator<<(ostream &os);
-  virtual ~Node ();
+
+  virtual ~Node () {};
 };
 
 class ColorNode : public Node {
 private:
   Color c;
+  vector<Color> restrictions;
 public:
-  ColorNode (Color c);
+  ColorNode (int id, vector<Color> r) : Node(id), restrictions(r) { };
   Color getColor();
-  ostream &operator<<(ostream &os);
+  bool testColor(Color c);
   void setColor(Color new_c);
-  virtual ~ColorNode ();
+  virtual ~ColorNode () {};
 };

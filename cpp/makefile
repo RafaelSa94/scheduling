@@ -4,4 +4,4 @@ CC=g++
 utils=lib/*.cpp
 
 main: main.cpp
-	$(CC) -Wall -o scheduling.out main.cpp $(utils)
+	$(CC) -o scheduling.out main.cpp $(utils)
