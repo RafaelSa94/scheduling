@@ -10,5 +10,7 @@ enum class Color : unsigned int{
   PURPLE,
   RED,
   YELLOW,
-  WHITE
+  WHITE,
+
+  BLANK
 };

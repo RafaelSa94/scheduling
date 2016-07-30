@@ -15,6 +15,10 @@ public:
   ColorGraph (map<int, ColorNode*> v, map<int, vector<int>> g) :
     v(v), g(g) {};
   vector<int> getAdj(int node);
+  vector<Color> getAdjColors(int node);
+  int vertQuantity();
+  ColorNode* getNode(int node);
+
   void setVertColor(int node, Color c);
   virtual ~ColorGraph () { };
 };

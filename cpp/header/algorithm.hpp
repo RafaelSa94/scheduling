@@ -1,8 +1,11 @@
 #pragma once
 
 #include "graph.hpp"
+#include <list>
 #include <iostream>
 #include <memory>
+
+
 
 using namespace std;
 class GraphAlgorithm {
@@ -16,6 +19,7 @@ public:
 
 
 class ColoringAlgorithm : public GraphAlgorithm {
+
 public:
   ColoringAlgorithm (ColorGraph g) : GraphAlgorithm(g) {};
   virtual void run();
