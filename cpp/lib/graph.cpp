@@ -28,6 +28,6 @@ vector<Color> ColorGraph::getAdjColors(int node) {
     colors.push_back(this->v.at(adj.at(i))->getColor());
   }
 
-  return colors();
+  return colors;
 
 }

@@ -12,7 +12,7 @@ bool ColorNode::testColor(Color c) {
   return true;
 }
 
-int Color::restrictionQuantity() {
+int ColorNode::restrictionQuantity() {
   return this->restrictions.size();
 
 }

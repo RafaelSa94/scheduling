@@ -13,11 +13,11 @@ class Data {
 private:
   map<int, vector<int>> g;
   map<int, ColorNode*> v;
-  void load(string file);
 
 public:
-  Data ();
-  map<int, int> getMap();
+  Data () {};
+  void load(string file);
+  map<int, vector<int>> getMap();
   map<int, ColorNode*> getVector();
   virtual ~Data ();
 };
