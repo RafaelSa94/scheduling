@@ -43,17 +43,21 @@
                         Adicionar
                     </button></small>
                 </h4>
-                <table class="table table-hover table-stripped table-bordered">
-                    <tr>
-                        <th>#</th>
-                        <th>Professor</th>
-                        <th>Restrições</th>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>Opsrhju Alkeuf</td>
-                        <td>Sex 08:00 - 18:00</td>
-                    </tr>
+                <table id="professor-table" class="table table-hover table-stripped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Professor</th>
+                            <th>Restrições</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>Opsrhju Alkeuf</td>
+                            <td>Sex 08:00 - 18:00</td>
+                        </tr>
+                    </tbody>
                 </table>
 
                 <h4>Horário:
@@ -64,7 +68,9 @@
                 </h4>
                 <table class="table table-hover table-stripped table-bordered">
                     <tr>
-                        <th></th>
+                        <th style="background: #fff;
+                            border-top: 1px solid #fff;
+                            border-left: 1px solid #fff;"></th>
                         <th>Segunda</th>
                         <th>Terça</th>
                         <th>Quarta</th>

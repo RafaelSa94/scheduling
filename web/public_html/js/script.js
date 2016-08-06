@@ -1,18 +1,44 @@
 var loadSubjects = function() {
     var tbody = $('#subject-table tbody');
-    tbody.empty();
-    tbody.append(
-        $("<tr>\
-            <td>0</td>\
-            <td>XXXXX</td>\
-            <td>YYYYY</td>\
-            <td>0</td>\
-            <td>?????</td>\
-        </tr>"));
+    $.ajax("/classes.php").done(function(data) {
+        if (data.success) {
+            tbody.empty();
+            for (var i = 0; i < data.data.length; i++) {
+                var subject = data.data[i];
+                tbody.append(
+                    $("<tr>\
+                    <td>"+ subject.id +"</td>\
+                    <td>"+ subject.name +"</td>\
+                    <td>"+ subject.professor.name +"</td>\
+                    <td>"+ subject.semester +"</td>\
+                    <td>"+ subject.professor.constraints +"</td>\
+                    </tr>"));
+            }
+        }
+    });
+}
+
+var loadProfessors = function() {
+    var tbody = $('#professor-table tbody');
+    $.ajax("/professors.php").done(function(data) {
+        if (data.success) {
+            tbody.empty();
+            for (var i = 0; i < data.data.length; i++) {
+                var professor = data.data[i];
+                tbody.append(
+                    $("<tr>\
+                    <td>"+ professor.id +"</td>\
+                    <td>"+ professor.name +"</td>\
+                    <td>"+ professor.constraints +"</td>\
+                    </tr>"));
+            }
+        }
+    });
 }
 
 $(document).ready(function() {
     loadSubjects();
+    loadProfessors();
 
     $('#add-subject').click(function(e) {
         var modal = $('#new-item-modal');
