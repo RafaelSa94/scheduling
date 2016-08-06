@@ -15,25 +15,26 @@
         </nav>
         <div class="container" style="margin-top: 60px;">
             <div class="row">
-                <h4>Disciplinas:
+                <h4>Turmas:
                     <small><button id="add-subject" class="btn btn-default btn-xs">
                         <span class="glyphicon glyphicon-plus"></span>
                         Adicionar
                     </button></small>
                 </h4>
-                <table class="table table-hover table-stripped table-bordered">
-                    <tr>
-                        <th>#</th>
-                        <th>Disciplina</th>
-                        <th>Professor</th>
-                        <th>Restrições</th>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>Fasoejgl</td>
-                        <td>Opsrhju Alkeuf</td>
-                        <td>Seg/Qua 08:00 - 12:00</td>
-                    </tr>
+                <table id="subject-table" class="table table-hover table-stripped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Disciplina</th>
+                            <th>Professor</th>
+                            <th>Período</th>
+                            <th>Restrições</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+
                 </table>
 
                 <h4>Professores:

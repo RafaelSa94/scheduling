@@ -1,7 +1,22 @@
+var loadSubjects = function() {
+    var tbody = $('#subject-table tbody');
+    tbody.empty();
+    tbody.append(
+        $("<tr>\
+            <td>0</td>\
+            <td>XXXXX</td>\
+            <td>YYYYY</td>\
+            <td>0</td>\
+            <td>?????</td>\
+        </tr>"));
+}
+
 $(document).ready(function() {
+    loadSubjects();
+
     $('#add-subject').click(function(e) {
         var modal = $('#new-item-modal');
-        modal.find('#modal-title').text("Disciplina");
+        modal.find('#modal-title').text("Turma");
         var name = modal.find('#field-name');
         name.find('label').text("Nome da disciplina");
         name.find('input').attr('placeholder', "Disciplina");
@@ -22,6 +37,6 @@ $(document).ready(function() {
     });
 
     $('#refresh-schedule').click(function(e) {
-        window.alert("OI");
+        window.alert("Função ainda não implementada");
     });
 });
