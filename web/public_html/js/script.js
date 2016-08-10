@@ -12,6 +12,7 @@ var loadSubjects = function() {
                     <td>"+ subject.professor.name +"</td>\
                     <td>"+ subject.semester +"</td>\
                     <td>"+ subject.professor.constraints +"</td>\
+                    <td><button class=\"btn btn-xs btn-danger delete-subject\" data-id=\"" + subject.id +"\"><span class=\"glyphicon glyphicon-trash\"></span></button></td>\
                     </tr>"));
             }
         }
@@ -30,6 +31,7 @@ var loadProfessors = function() {
                     <td>"+ professor.id +"</td>\
                     <td>"+ professor.name +"</td>\
                     <td>"+ professor.constraints +"</td>\
+                    <td><button class=\"btn btn-xs btn-danger delete-professor\" data-id=\"" + professor.id +"\"><span class=\"glyphicon glyphicon-trash\"></span></button></td>\
                     </tr>"));
             }
         }
@@ -41,6 +43,25 @@ var insertProfessor = function(name, restrictions){
     .done(function(data) {
         if (data.success) {
             loadProfessors();
+        }
+    });
+}
+
+var deleteProfessor = function(id) {
+    $.post("/professors.php/?delete", {'id': id})
+    .done(function(data) {
+        if (data.success) {
+            loadProfessors();
+            loadSubjects();
+        }
+    });
+}
+
+var deleteSubject = function(id) {
+    $.post("/subject.php/?delete", {'id': id})
+    .done(function(data) {
+        if (data.success) {
+            loadSubjects();
         }
     });
 }
@@ -78,6 +99,16 @@ $(document).ready(function() {
 
         modal.find('#field-professor').hide();
         modal.modal();
+    });
+
+    $(document).on('click', '.delete-professor', function(e) {
+        var id = $(e.currentTarget).data('id');
+        deleteProfessor(id);
+    });
+
+    $(document).on('click', '.delete-subject', function(e) {
+        var id = $(e.currentTarget).data('id');
+        deleteSubject(id);
     });
 
     $('#new-item-modal').on('shown.bs.modal', function () {

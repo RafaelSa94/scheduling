@@ -29,6 +29,7 @@
                             <th>Professor</th>
                             <th>Período</th>
                             <th>Restrições</th>
+                            <th><span class="glyphicon glyphicon-trash"></span></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,6 +50,7 @@
                             <th>#</th>
                             <th>Professor</th>
                             <th>Restrições</th>
+                            <th><span class="glyphicon glyphicon-trash"></span></th>
                         </tr>
                     </thead>
                     <tbody>
