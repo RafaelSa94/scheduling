@@ -23,9 +23,67 @@ class ProfessorController
                                         . "VALUES (?, ?)");
         $stmt->bindParam(1, $professor->getName());
         $stmt->bindParam(2, implode(',', $professor->getConstraints()));
-        $stmt->execute();
+        if (!$stmt->execute())
+            throw new Exception("Erro ao inserir item.", 1);
+
         $professor->setId($this->conn->lastInsertId());
         return $professor;
+    }
+
+    /**
+     * Edita um professor.
+     * Esta classe se baseia no ID do professor fornecida para editar os outros
+     * atributos do professor. O novo nome será o nome incluído no objeto que for
+     * passado como argumento.
+     * @param  Professor $professor  Professor a ser editado
+     * @return Professor             Professor editado
+     */
+    function edit(Professor $professor) {
+        $stmt = $this->conn->prepare("UPDATE professor SET name = ?, constraints = ? WHERE professor.id = ?");
+        $stmt->bindParam(1, $professor->getName());
+        $stmt->bindParam(2, implode(',', $professor->getConstraints()));
+        $stmt->bindParam(3, $professor->getId());
+
+        if (!$stmt->execute())
+            throw new Exception("Erro ao editar item.", 1);
+
+        return $professor;
+    }
+
+    /**
+     * Remove um professor do banco de dados
+     * @param  Professor $professor   Professor a ser removido
+     */
+    function delete(Professor $professor)
+    {
+        return $this->deleteId($professor->getId());
+    }
+
+    /**
+     * Remove um professor do banco de dados
+     * @param  int $professor_id  ID do professor a ser removido
+     */
+    function deleteId($professor_id)
+    {
+        $stmt = $this->conn->prepare('DELETE FROM professor WHERE id = :uprofessor_id');
+
+        if (!$stmt->execute(array(':uprofessor_id' => $professor_id)))
+            throw new Exception("Erro ao excluir item.", 1);
+    }
+
+    /**
+     * Recebe os dados de um professor dado seu ID.
+     * @param  int $id  ID do professor a ser procurado
+     * @return Professor  Professor referente ao ID informado
+     */
+    function get($id) {
+        $stmt = $this->conn->prepare('SELECT * FROM professor WHERE id = :id');
+        $stmt->execute(array(':id' => $id));
+        $data = $stmt->fetchAll();
+        foreach ($data as $i => $row) {
+            $data[$i] = $this->arrayToObject($row);
+        }
+        return $data;
     }
 
     /**

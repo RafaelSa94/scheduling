@@ -52,11 +52,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>0</td>
-                            <td>Opsrhju Alkeuf</td>
-                            <td>Sex 08:00 - 18:00</td>
-                        </tr>
                     </tbody>
                 </table>
 
@@ -146,27 +141,45 @@
                                 </tr>
                                 <tr>
                                     <td>08:00-10:00</td>
-                                    <td><label class="checkbox-inline"><input type="checkbox"></label></td>
-                                    <td><label class="checkbox-inline"><input type="checkbox"></label></td>
-                                    <td><label class="checkbox-inline"><input type="checkbox"></label></td>
+                                    <td><label class="checkbox-inline">
+                                        <input type="checkbox" value="1"> 1
+                                    </label></td>
+                                    <td><label class="checkbox-inline">
+                                        <input type="checkbox" value="5"> 5
+                                    </label></td>
+                                    <td rowspan="2"><label class="checkbox-inline">
+                                        <input type="checkbox" value="9"> 9
+                                    </label></td>
                                 </tr>
                                 <tr>
                                     <td>10:00-12:00</td>
-                                    <td><label class="checkbox-inline"><input type="checkbox"></label></td>
-                                    <td><label class="checkbox-inline"><input type="checkbox"></label></td>
-                                    <td><label class="checkbox-inline"><input type="checkbox"></label></td>
+                                    <td><label class="checkbox-inline">
+                                        <input type="checkbox" value="2"> 2
+                                    </label></td>
+                                    <td><label class="checkbox-inline">
+                                        <input type="checkbox" value="6"> 6
+                                    </label></td>
                                 </tr>
                                 <tr>
                                     <td>14:00-16:00</td>
-                                    <td><label class="checkbox-inline"><input type="checkbox"></label></td>
-                                    <td><label class="checkbox-inline"><input type="checkbox"></label></td>
-                                    <td><label class="checkbox-inline"><input type="checkbox"></label></td>
+                                    <td><label class="checkbox-inline">
+                                        <input type="checkbox" value="3"> 3
+                                    </label></td>
+                                    <td><label class="checkbox-inline">
+                                        <input type="checkbox" value="7"> 7
+                                    </label></td>
+                                    <td rowspan="2"><label class="checkbox-inline">
+                                        <input type="checkbox" value="10"> 10
+                                    </label></td>
                                 </tr>
                                 <tr>
                                     <td>16:00-18:00</td>
-                                    <td><label class="checkbox-inline"><input type="checkbox"></label></td>
-                                    <td><label class="checkbox-inline"><input type="checkbox"></label></td>
-                                    <td><label class="checkbox-inline"><input type="checkbox"></label></td>
+                                    <td><label class="checkbox-inline">
+                                        <input type="checkbox" value="4"> 4
+                                    </label></td>
+                                    <td><label class="checkbox-inline">
+                                        <input type="checkbox" value="8"> 8
+                                    </label></td>
                                 </tr>
                             </table>
                         </div>

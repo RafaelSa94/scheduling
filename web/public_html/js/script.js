@@ -36,6 +36,24 @@ var loadProfessors = function() {
     });
 }
 
+var insertProfessor = function(name, restrictions){
+    $.post('/professors.php?insert', {'name': name, 'constraints[]': restrictions})
+    .done(function(data) {
+        if (data.success) {
+            loadProfessors();
+        }
+    });
+}
+
+var insertSubject = function(name, professor_id, semester){
+    $.post('/classes.php?insert', {'name': name, 'professor_id': professor_id, 'semester': semester})
+    .done(function(data) {
+        if (data.success) {
+            loadSubjects();
+        }
+    });
+}
+
 $(document).ready(function() {
     loadSubjects();
     loadProfessors();
@@ -61,6 +79,10 @@ $(document).ready(function() {
         modal.find('#field-professor').hide();
         modal.modal();
     });
+
+    $('#new-item-modal').on('shown.bs.modal', function () {
+        $('#field-name input').focus();
+    })
 
     $('#refresh-schedule').click(function(e) {
         window.alert("Função ainda não implementada");

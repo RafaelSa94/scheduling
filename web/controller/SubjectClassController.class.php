@@ -21,7 +21,7 @@ class SubjectClassController
      */
     function insert(SubjectClass $class) {
         $stmt = $this->conn->prepare("INSERT INTO class (name, professor_id, semester) VALUES (?, ?, ?)");
-        $stmt->bindParam(1, $class->getNome());
+        $stmt->bindParam(1, $class->getName());
         $stmt->bindParam(2, $class->getProfessor()->getId());
         $stmt->bindParam(3, $class->getSemester());
         $stmt->execute();
@@ -39,8 +39,8 @@ class SubjectClassController
      */
     function edit(SubjectClass $class) {
         $stmt = $this->conn->prepare("UPDATE class SET name = ?, semester = ?, professor_id = ? WHERE class.id = ?");
-        $stmt->bindParam(1, $class->getNome());
-        $stmt->bindParam(2, $class->getProfessor()->getId());
+        $stmt->bindParam(1, $class->getName());
+        $stmt->bindParam(2, $class->getProfessor() != null ? $class->getProfessor()->getId() : null);
         $stmt->bindParam(3, $class->getSemester());
         $stmt->bindParam(4, $class->getId());
         $stmt->execute();
