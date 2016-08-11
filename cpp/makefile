@@ -4,4 +4,4 @@ CC=g++
 utils=lib/*.cpp
 
 main: main.cpp
-	$(CC) -o scheduling.out main.cpp $(utils)
+	$(CC) -o scheduling.out main.cpp $(utils) -std=c++11
