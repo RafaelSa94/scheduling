@@ -64,7 +64,7 @@ try {
 		if (!isset($_POST['id']) || empty($_POST['id']))
 			throw new Exception("Falta parâmetros na requisição", 1);
 
-		$professor->deleteId($_POST['id']);
+		$class->deleteId($_POST['id']);
 		success(array());
 
 	} else {

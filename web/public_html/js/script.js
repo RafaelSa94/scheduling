@@ -64,7 +64,7 @@ var insertSubject = function(name, professor_id, semester, callback){
 }
 
 var deleteProfessor = function(id) {
-    $.post("/professors.php/?delete", {'id': id})
+    $.post("/professors.php?delete", {'id': id})
     .done(function(data) {
         if (data.success) {
             loadProfessors();
@@ -74,7 +74,7 @@ var deleteProfessor = function(id) {
 }
 
 var deleteSubject = function(id) {
-    $.post("/subject.php/?delete", {'id': id})
+    $.post("/classes.php?delete", {'id': id})
     .done(function(data) {
         if (data.success) {
             loadSubjects();
