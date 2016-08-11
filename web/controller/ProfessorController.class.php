@@ -19,10 +19,17 @@ class ProfessorController
      * @return Professor             O professor inserido, com o ID
      */
     function insert(Professor $professor) {
-        $stmt = $this->conn->prepare("INSERT INTO professor (name, constraints) "
-                                        . "VALUES (?, ?)");
-        $stmt->bindParam(1, $professor->getName());
-        $stmt->bindParam(2, implode(',', $professor->getConstraints()));
+        if ($professor->getConstraints() != null) {
+            $stmt = $this->conn->prepare("INSERT INTO professor (name, constraints) "
+            . "VALUES (?, ?)");
+
+            $stmt->bindParam(1, $professor->getName());
+            $stmt->bindParam(2, implode(',', $professor->getConstraints()));
+        } else {
+            $stmt = $this->conn->prepare("INSERT INTO professor (name) VALUES (?)");
+
+            $stmt->bindParam(1, $professor->getName());
+        }
         if (!$stmt->execute())
             throw new Exception("Erro ao inserir item.", 1);
 

@@ -6,11 +6,14 @@ $professor = new ProfessorController();
 
 try {
 	if (isset($_GET['insert'])) {
-		if (!isset($_POST['name']) || empty($_POST['name']) ||
-			!isset($_POST['constraints']) || empty($_POST['constraints']))
+		if (!isset($_POST['name']) || empty($_POST['name']))
 			throw new Exception("Falta parâmetros na requisição", 1);
 
-		$new = $professor->insert(new Professor(null, $_POST['name'], $_POST['constraints']));
+		$constraints = null;
+		if (isset($_POST['constraints']) && !empty($_POST['constraints']))
+			$constraints = $_POST['constraints'];
+
+		$new = $professor->insert(new Professor(null, $_POST['name'], $constraints));
 		success($new->toArray());
 
 	} elseif (isset($_GET['edit'])) {
