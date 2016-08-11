@@ -1,12 +1,13 @@
 <?php
 require_once('../model/SubjectClass.php');
+require_once '../app_configs.php';
 
 /**
  * Utilitários
  */
 class Utils
 {
-    static public function ClassesToCsv(array $classes)
+    static public function classesToCsv(array $classes)
     {
         $vertices = array();
         for ($i=0; $i < count($classes); $i++) {
@@ -42,4 +43,27 @@ class Utils
 
         return implode("\n", $vertices);
     }
+
+    static public function getTimetable(array $classes)
+    {
+        $cmd = Config::executable." /dev/stdin /dev/stdout";
+
+        $descriptorspec = array(
+           0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
+           1 => array("pipe", "w"),  // stdout is a pipe that the child will write to
+        );
+
+        $process = proc_open($cmd, $descriptorspec, $pipes);
+
+        fwrite($pipes[0], Utils::classesToCsv($classes));
+        fclose($pipes[0]);
+
+        $output = stream_get_contents($pipes[1]);
+        fclose($pipes[1]);
+
+        proc_close($process);
+
+        return $output;
+    }
+
 }
