@@ -85,7 +85,7 @@ class SubjectClassController
      * @return SubjectClass  Turma referente ao ID informado
      */
     function get($id) {
-        $stmt = $this->conn->prepare('SELECT * FROM class WHERE id = :id');
+        $stmt = $this->conn->prepare('SELECT * FROM class_professor WHERE id = :id');
         $stmt->execute(array(':id' => $id));
         $data = $stmt->fetchAll();
         foreach ($data as $i => $row) {

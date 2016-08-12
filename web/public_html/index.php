@@ -63,7 +63,7 @@
                         Atualizar horário
                     </button></small>
                 </h4>
-                <table class="table table-hover table-stripped table-bordered">
+                <table id="timetable" class="table table-hover table-stripped table-bordered">
                     <tr>
                         <th style="background: #fff;
                             border-top: 1px solid #fff;
@@ -76,35 +76,35 @@
                     </tr>
                     <tr>
                         <td>8:00 - 10:00</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td data-time="1"></td>
+                        <td data-time="5"></td>
+                        <td data-time="1"></td>
+                        <td data-time="5"></td>
+                        <td data-time="9"></td>
                     </tr>
                     <tr>
                         <td>10:00 - 12:00</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td data-time="2"></td>
+                        <td data-time="6"></td>
+                        <td data-time="2"></td>
+                        <td data-time="6"></td>
+                        <td data-time="9"></td>
                     </tr>
                     <tr>
                         <td>14:00 - 16:00</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td data-time="3"></td>
+                        <td data-time="7"></td>
+                        <td data-time="3"></td>
+                        <td data-time="7"></td>
+                        <td data-time="10"></td>
                     </tr>
                     <tr>
                         <td>16:00 - 18:00</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td data-time="4"></td>
+                        <td data-time="8"></td>
+                        <td data-time="4"></td>
+                        <td data-time="8"></td>
+                        <td data-time="10"></td>
                     </tr>
                 </table>
             </div>

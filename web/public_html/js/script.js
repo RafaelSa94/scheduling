@@ -43,6 +43,24 @@ var loadProfessors = function() {
     });
 }
 
+var loadTimetable = function() {
+    var table = $('#timetable');
+    $.ajax("/timetable.php").done(function(data) {
+        if (data.success) {
+            for (var i = 1; i <= 10; i++) {
+                var cell = table.find("td[data-time=\""+ i +"\"]");
+                var subjects = data.data[i];
+
+                if (subjects) {
+                    cell.html(subjects.map(function(el, i) {
+                        return "<b>"+ el.name +"</b> ("+ el.professor.name +")";
+                    }).join("<br>"));
+                }
+            }
+        }
+    });
+}
+
 var insertProfessor = function(name, constraints, callback){
     $.post('/professors.php?insert', {'name': name, 'constraints[]': constraints})
     .done(function(data) {
@@ -160,6 +178,6 @@ $(document).ready(function() {
     });
 
     $('#refresh-schedule').click(function(e) {
-        window.alert("Função ainda não implementada");
+        loadTimetable();
     });
 });

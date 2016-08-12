@@ -8,4 +8,15 @@ $cls = new SubjectClassController();
 
 $timetable = Utils::getTimetable($cls->getAll());
 
-echo json_encode($timetable);
+$timetable = array_map(function ($classes)
+{
+    return array_map(function($c){
+        global $cls;
+        return $cls->get($c)[0]->toArray();
+    }, $classes);
+}, $timetable);
+
+echo json_encode(array(
+    'success' => true,
+    'data' => $timetable,
+));
