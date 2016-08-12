@@ -79,8 +79,8 @@ map<int, ColorNode*> Data::getVector() {
 }
 
 Data::~Data(){
-  for (int i = 0; i < this->v.size(); i++) {
-    delete(this->v.at(i));
+  for (auto& i : this->v) {
+    delete(this->v.at(i.first));
   }
 
 }

@@ -2,17 +2,16 @@
 
 void GraphAlgorithm::exportGraph(string file) {
   ofstream csv_file(file);
-  for(int i = 0; i < this->g.vertQuantity(); i++) {
-    csv_file << i << ";" << (int)g.getNode(i)->getColor() << "\n";
+  for(auto& vertex : this->g.getVertices()) {
+    csv_file << vertex << ";" << (int)this->g.getNode(vertex)->getColor() << endl;
   }
 }
 
-
 void ColoringAlgorithm::run() {
-  unsigned int colors_necessary = 0;
+  //unsigned int colors_necessary = 0;
 
   for(int i = 0; i < coloring_order.size(); i++) {
-    int node = coloring_order.at(i);
+    int node = coloring_order[i];
     Color c = getAvailableColor(node);
     g.setVertColor(node, c);
   }
@@ -51,9 +50,8 @@ bool ColoringAlgorithm::sort(int i, int j) {
 void ColoringAlgorithm::genColoringOrder() {
 
   for(int i = 0; i < this->g.vertQuantity(); i++) {
-    coloring_order.push_back(i);
+    coloring_order.push_back(this->g.getVertices()[i]);
   }
-
   for(int i = 0; i < this->g.vertQuantity(); i++) {
     for(int j = 0; j< this->g.vertQuantity(); j++) {
       if(!this->sort(coloring_order[i],coloring_order[j])) {

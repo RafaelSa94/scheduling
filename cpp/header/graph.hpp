@@ -18,6 +18,7 @@ public:
   vector<Color> getAdjColors(int node);
   int vertQuantity();
   ColorNode* getNode(int node);
+  vector<int> getVertices();
 
   void setVertColor(int node, Color c);
   virtual ~ColorGraph () { };
