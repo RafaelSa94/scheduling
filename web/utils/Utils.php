@@ -1,5 +1,5 @@
 <?php
-require_once('../model/SubjectClass.php');
+require_once '../model/SubjectClass.php';
 require_once '../app_configs.php';
 
 /**
@@ -17,7 +17,7 @@ class Utils
             if (!($c instanceof SubjectClass))
             return 0;
 
-            $vertex .= $i.";";
+            $vertex .= $c->getId().";";
 
             $edges = array();
             for ($j=0; $j < count($classes); $j++) {
@@ -27,7 +27,7 @@ class Utils
                 if ($i != $j &&
                     ($c->getSemester() == $d->getSemester() ||
                     $c->getProfessor()->getId() == $d->getProfessor()->getId())) {
-                    array_push($edges, $j);
+                    array_push($edges, $d->getId());
                 }
             }
             $vertex .= implode(",", $edges) . ";";
@@ -51,6 +51,7 @@ class Utils
         $descriptorspec = array(
            0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
            1 => array("pipe", "w"),  // stdout is a pipe that the child will write to
+           2 => array("pipe", "w"),  // stdout is a pipe that the child will write to
         );
 
         $process = proc_open($cmd, $descriptorspec, $pipes);
@@ -63,7 +64,22 @@ class Utils
 
         proc_close($process);
 
-        return $output;
+        return Utils::csvToArray($output);
+    }
+
+    static public function csvToArray($csv) {
+
+        $result = array();
+
+        foreach (explode("\n", $csv) as $line) {
+            $x = explode(";", $line);
+
+            if (!empty($x[0])) {
+                $result[$x[0]] = $x[1]+1;
+            }
+        }
+
+        return $result;
     }
 
 }
