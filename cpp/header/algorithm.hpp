@@ -23,6 +23,7 @@ private:
   vector<int> coloring_order;
   bool sort(int i, int j);
   int colors_available;
+  Color last_color;
 
   void genColoringOrder();
   Color getAvailableColor(int node);

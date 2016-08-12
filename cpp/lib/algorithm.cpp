@@ -9,6 +9,7 @@ void GraphAlgorithm::exportGraph(string file) {
 
 void ColoringAlgorithm::run() {
   //unsigned int colors_necessary = 0;
+  last_color = (Color)0;
 
   for(int i = 0; i < coloring_order.size(); i++) {
     int node = coloring_order[i];
@@ -21,22 +22,25 @@ Color ColoringAlgorithm::getAvailableColor(int node) {
   vector<Color> adj_restrictions = this->g.getAdjColors(node);
 
 
-  for(int c = 0; c < colors_available; c++) {
+  for(int i = 0; i < colors_available; i++) {
     bool available;
 
-    available = this->g.getNode(node)->testColor((Color)c);
+    int color = (i + (int)last_color) % colors_available;
+
+    available = this->g.getNode(node)->testColor((Color)color);
 
     // Verifica restrições adjacentes
     for(Color rest_c : adj_restrictions) {
       if(!available)
         break;
-      if(rest_c == (Color)c) {
+      if(rest_c == (Color)color) {
         available = false;
       }
     }
 
     if(available) {
-      return (Color)c;
+      last_color = (Color)color;
+      return (Color)color;
     }
   }
   cerr << "No color available for node " << node << "\n";
