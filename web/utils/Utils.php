@@ -75,7 +75,7 @@ class Utils
             $x = explode(";", $line);
 
             if (!empty($x[0])) {
-                $result[$x[0]] = $x[1]+1;
+                $result[$x[1]+1][] = $x[0];
             }
         }
 
