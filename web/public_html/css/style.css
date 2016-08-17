@@ -1,0 +1,13 @@
+table {
+    table-layout: fixed;
+}
+
+.table-overflow {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 40px;
+}
+
+.bottom-spacing {
+    height: 60px;
+}

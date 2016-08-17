@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>Agendamento de aulas</title>
         <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen">
+        <link rel="stylesheet" href="/css/style.css" media="screen">
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -21,22 +22,24 @@
                         Adicionar
                     </button></small>
                 </h4>
-                <table id="subject-table" class="table table-hover table-stripped table-bordered">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Disciplina</th>
-                            <th>Professor</th>
-                            <th>Período</th>
-                            <th>Restrições</th>
-                            <th><span class="glyphicon glyphicon-trash"></span></th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <div class="table-overflow">
+                    <table id="subject-table" class="table table-hover table-stripped">
+                        <thead>
+                            <tr>
+                                <th width="60">#</th>
+                                <th>Disciplina</th>
+                                <th>Professor</th>
+                                <th>Período</th>
+                                <th>Restrições</th>
+                                <th width="60"><span class="glyphicon glyphicon-trash"></span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                    </tbody>
+                        </tbody>
 
-                </table>
+                    </table>
+                </div>
 
                 <h4>Professores:
                     <small><button id="add-professor" class="btn btn-default btn-xs">
@@ -44,18 +47,20 @@
                         Adicionar
                     </button></small>
                 </h4>
-                <table id="professor-table" class="table table-hover table-stripped table-bordered">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Professor</th>
-                            <th>Restrições</th>
-                            <th><span class="glyphicon glyphicon-trash"></span></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+                <div class="table-overflow">
+                    <table id="professor-table" class="table table-hover table-stripped">
+                        <thead>
+                            <tr>
+                                <th width="60">#</th>
+                                <th>Professor</th>
+                                <th>Restrições</th>
+                                <th width="60"><span class="glyphicon glyphicon-trash"></span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
 
                 <h4>Horário:
                     <small><button id="refresh-schedule" class="btn btn-default btn-xs">
@@ -107,6 +112,7 @@
                         <td data-time="10"></td>
                     </tr>
                 </table>
+                <div class="bottom-spacing"></div>
             </div>
         </div>
 
